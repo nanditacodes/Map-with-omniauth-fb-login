@@ -1,0 +1,14 @@
+<br>
+<%= form_tag  create_marker_path, method: :post do  %>
+
+  <%= text_field_tag 'address' %>
+  <%= submit_tag "Map it!" %>
+
+<% end %>
+
+<br><br>
+<%= content_tag "div", id: "markers", data: {items: @markers } do %>
+  <h4><b>Adding marker!!!</b></h4>
+<% end %>
+
+<div id="map"></div>
