@@ -1,5 +1,5 @@
 <br>
-<%= form_tag  create_marker_path, method: :post do  %>
+<%= form_tag  create_marker_path, method: :post, remote: true do  %>
 
   <%= text_field_tag 'address' %>
   <%= submit_tag "Map it!" %>
@@ -7,8 +7,4 @@
 <% end %>
 
 <br><br>
-<%= content_tag "div", id: "markers", data: {items: @markers } do %>
- Add cities in Houston, tx
-<% end %>
-
 <div id="map"></div>
