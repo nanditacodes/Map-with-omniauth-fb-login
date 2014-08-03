@@ -1,4 +1,5 @@
 class MarkerController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
   def index
     @markers = Marker.all
   end

@@ -26,7 +26,21 @@
 <body>
   <div class="container"
     <br>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <nav>
+      <% if user_signed_in? %>
+        Hi <%= current_user.name %>
+        <%= link_to "Sign Out",  destroy_user_session_path, method: :delete, id: "sign_out"  %>
+      <% else %>
+        <%= link_to user_omniauth_authorize_path(:facebook) do %>
+          <%= image_tag "http://sociallygold.com/wp-content/uploads/2014/05/facebook-login-button.png", size: "200x100" %>
+        <% end %>
+      <% end %>
+  </nav>
+  <% if user_signed_in? %>
     <%= yield %>
+  <% end %>
   </div>
 </body>
 </html>
